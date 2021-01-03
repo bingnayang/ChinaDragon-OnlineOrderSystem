@@ -22,7 +22,7 @@ public class SubmitOrderRESTController {
 		submitOrderService = theSubmitOrderService;
 	}
 	
-	@GetMapping("/orders")
+	@GetMapping("/active-orders")
 	public List<SubmitOrder> getAllActiveOrder(){
 		return submitOrderService.getAllActiveOrder();
 	}

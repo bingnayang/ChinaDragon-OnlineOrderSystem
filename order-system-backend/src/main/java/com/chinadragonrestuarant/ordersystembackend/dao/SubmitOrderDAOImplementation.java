@@ -25,7 +25,7 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		
 		// Create a query
 		// Using native Hibernate API
-		Query<SubmitOrder> theQuery = currentSession.createQuery("from SubmitOrder",SubmitOrder.class);
+		Query<SubmitOrder> theQuery = currentSession.createQuery("FROM SubmitOrder order WHERE order.status='Active'",SubmitOrder.class);
 		
 		// Execute query and get result list
 		List<SubmitOrder> activeOrderList = theQuery.getResultList();
