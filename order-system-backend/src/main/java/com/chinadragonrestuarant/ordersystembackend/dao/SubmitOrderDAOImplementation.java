@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -14,6 +15,7 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 	// Define field for entitymanager
 	private EntityManager entityManager;
 	
+	@Autowired
 	public SubmitOrderDAOImplementation(EntityManager theEntityManager){
 		entityManager = theEntityManager;
 	}
