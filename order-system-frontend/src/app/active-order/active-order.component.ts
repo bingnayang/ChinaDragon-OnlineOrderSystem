@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitOrder } from '../classes/submit-order';
 import { OrderService } from '../services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-active-order',
@@ -10,7 +11,7 @@ import { OrderService } from '../services/order.service';
 export class ActiveOrderComponent implements OnInit {
   activeOrderList: SubmitOrder[];
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.getActiveOrderList();
@@ -20,5 +21,10 @@ export class ActiveOrderComponent implements OnInit {
     this.orderService.getActiveOrderList().subscribe(data => {
       this.activeOrderList = data;
     },error => console.log(error))
+  }
+
+  viewOrderDetail(id: number){
+    console.log(id)
+    // this.router.navigate(['active-order-detail',id]);
   }
 }

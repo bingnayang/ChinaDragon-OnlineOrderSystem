@@ -19,7 +19,7 @@
             <td>{{ order.pickup }}</td>
             <td>{{ order.orderItem.length }}</td>
             <td>{{ order.total }}</td>
-            <td><button class="btn btn-outline-primary">View Order Detail</button></td>
+            <td><button class="btn btn-outline-primary" (click)="viewOrderDetail(order.id)">View Order Detail</button></td>
           </tr>
         </tbody>
       </table>
