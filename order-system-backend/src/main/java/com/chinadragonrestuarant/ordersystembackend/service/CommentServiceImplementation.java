@@ -1,9 +1,13 @@
 package com.chinadragonrestuarant.ordersystembackend.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.chinadragonrestuarant.ordersystembackend.dao.CommentDAO;
+import com.chinadragonrestuarant.ordersystembackend.entity.Comment;
 
 @Service
 public class CommentServiceImplementation implements CommentService {
@@ -12,6 +16,12 @@ public class CommentServiceImplementation implements CommentService {
 	@Autowired
 	public CommentServiceImplementation(CommentDAO commentDAO) {
 		this.commentDAO = commentDAO;
+	}
+
+	@Override
+	@Transactional
+	public List<Comment> getCommentList() {
+		return commentDAO.getCommentList();
 	}
 	
 	
