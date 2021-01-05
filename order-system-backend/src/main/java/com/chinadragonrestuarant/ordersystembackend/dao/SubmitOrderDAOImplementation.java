@@ -35,5 +35,17 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		// Return the result
 		return activeOrderList;
 	}
+
+	@Override
+	public SubmitOrder getOrderById(int id) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Get the museum
+		SubmitOrder theOrder = currentSession.get(SubmitOrder.class, id);
+		
+		// Return the museum
+		return theOrder;
+	}
 	
 }

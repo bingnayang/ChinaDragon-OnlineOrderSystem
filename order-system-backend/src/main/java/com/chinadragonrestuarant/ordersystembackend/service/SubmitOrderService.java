@@ -7,5 +7,7 @@ import com.chinadragonrestuarant.ordersystembackend.entity.SubmitOrder;
 public interface SubmitOrderService {
 
 	List<SubmitOrder> getAllActiveOrder();
+
+	SubmitOrder getOrderById(int id);
 	
 }

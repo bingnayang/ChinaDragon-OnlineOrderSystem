@@ -23,4 +23,10 @@ public class SubmitOrderServiceImplementation implements SubmitOrderService {
 	public List<SubmitOrder> getAllActiveOrder() {
 		return submitOrderDAO.getAllActiveOrder();
 	}
+
+	@Override
+	@Transactional
+	public SubmitOrder getOrderById(int id) {
+		return submitOrderDAO.getOrderById(id);
+	}
 }

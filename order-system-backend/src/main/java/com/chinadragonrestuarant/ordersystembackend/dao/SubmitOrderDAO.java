@@ -8,4 +8,6 @@ public interface SubmitOrderDAO {
 
 	List<SubmitOrder> getAllActiveOrder();
 
+	SubmitOrder getOrderById(int id);
+
 }
