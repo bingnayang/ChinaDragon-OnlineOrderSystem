@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CommentService } from '../services/comment.service';
+import { Comment } from '../classes/comment';
 
 @Component({
   selector: 'app-view-comment',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-comment.component.css']
 })
 export class ViewCommentComponent implements OnInit {
+  commentList: Comment[];
 
-  constructor() { }
+  constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
+    this.getCommentList();
   }
 
+  getCommentList(){
+      this.commentService.getCommentList().subscribe(data => {
+        this.commentList = data;
+      },error => console.log(error));
+  }
 }
