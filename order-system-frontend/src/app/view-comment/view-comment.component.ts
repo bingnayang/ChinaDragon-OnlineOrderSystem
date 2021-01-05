@@ -21,4 +21,8 @@ export class ViewCommentComponent implements OnInit {
         this.commentList = data;
       },error => console.log(error));
   }
+  
+  viewCommentDetail(id:number){
+
+  }
 }
