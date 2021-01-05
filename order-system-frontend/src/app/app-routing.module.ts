@@ -8,7 +8,7 @@ import { ViewCommentComponent } from './view-comment/view-comment.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'active-order', component: ActiveOrderComponent},
-  {path: 'active-order', component: ActiveOrderDetailComponent},
+  {path: 'active-order-detail/:id', component: ActiveOrderDetailComponent},
   {path: 'view-comment', component: ViewCommentComponent},
   {path: '', redirectTo:'home', pathMatch: 'full'}
 ];

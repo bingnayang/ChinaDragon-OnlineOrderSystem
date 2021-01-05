@@ -25,6 +25,6 @@ export class ActiveOrderComponent implements OnInit {
 
   viewOrderDetail(id: number){
     console.log(id)
-    // this.router.navigate(['active-order-detail',id]);
+    this.router.navigate(['active-order-detail',id]);
   }
 }
