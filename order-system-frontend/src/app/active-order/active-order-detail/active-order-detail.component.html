@@ -1,15 +1,32 @@
 <div class="container" style="padding-top: 3rem;">
     <div class="container">
+        <h5>ORDER # {{ orderDetail.id }}</h5>
+        <hr>
+    </div>
+    <div class="container">
         <div class="row">
             <div class="col-sm-3"><h5>ORDER INFO</h5></div>
             <div class="col-sm-9">
-                <h6>Order Number: {{ orderDetail.id }}</h6>
-                <h6>Customer Name: {{ orderDetail.name }}</h6>
-                <h6>Customer Phone: {{ orderDetail.phone }}</h6>
-                <h6>Order Date: {{ orderDetail.date }}</h6>
-                <h6>Order Submitted Time: {{ orderDetail.time }}</h6>
-                <h6>Order Pickup Time: {{ orderDetail.pickup }}</h6>
-                <h6>Status: {{ orderDetail.status }}</h6>
+                <div class="row">
+                    <div class="col">Customer Name:</div>
+                    <div class="col text-right">{{ orderDetail.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Customer Phone:</div>
+                    <div class="col text-right">{{ orderDetail.phone }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Submitted Time:</div>
+                    <div class="col text-right">{{ orderDetail.time }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Pick Up Time:</div>
+                    <div class="col text-right">{{ orderDetail.pickup }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Status:</div>
+                    <div class="col text-right">{{ orderDetail.status }}</div>
+                </div>
             </div>
         </div>
         <hr>
@@ -48,11 +65,15 @@
         <div class="row">
             <div class="col-sm-3"><h5>UPDATE STATUS</h5></div>
             <div class="col-sm-9">
-                <button class="btn btn-danger">Cancel Order</button>
-                <br>
-                <button class="btn btn-info">Picked Up</button>
-                <br>
-                <button class="btn btn-primary">No Show</button>
+                <div class="row mb-3">
+                    <button class="btn btn-primary btn-block">Picked Up</button>
+                </div>
+                <div class="row mb-3">
+                    <button class="btn btn-danger btn-block">Cancel Order</button>
+                </div>
+                <div class="row">
+                    <button class="btn btn-dark btn-block">No Show</button>
+                </div>
             </div>
         </div>
     </div>
