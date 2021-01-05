@@ -1,1 +1,59 @@
-<p>active-order-detail works!</p>
+<div class="container" style="padding-top: 3rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>ORDER INFO</h5></div>
+            <div class="col-sm-9">
+                <h6>Order Number: {{ orderDetail.id }}</h6>
+                <h6>Customer Name: {{ orderDetail.name }}</h6>
+                <h6>Customer Phone: {{ orderDetail.phone }}</h6>
+                <h6>Order Date: {{ orderDetail.date }}</h6>
+                <h6>Order Submitted Time: {{ orderDetail.time }}</h6>
+                <h6>Order Pickup Time: {{ orderDetail.pickup }}</h6>
+                <h6>Status: {{ orderDetail.status }}</h6>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>ITEM</h5></div>
+            <div class="col-sm-9">
+                <div *ngFor="let item of orderDetail.orderItem">
+                    <div class="row">
+                        <div class="col-1">{{ item.quantity }}</div>
+                        <div class="col-5">{{ item.name }}
+                            <span *ngIf="item.size !== 'None'">({{ item.size }})</span>
+                        </div>
+                        <div class="col text-right">{{ item.price | currency}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col">SubTotal:</div>
+                    <div class="col text-right">{{ orderDetail.subtotal | currency }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Tax:</div>
+                    <div class="col text-right">{{ orderDetail.tax | currency }}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Total:</div>
+                    <div class="col text-right">{{ orderDetail.total | currency }}</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><h5>UPDATE STATUS</h5></div>
+            <div class="col-sm-9">
+                <button class="btn btn-danger">Cancel Order</button>
+                <br>
+                <button class="btn btn-info">Picked Up</button>
+                <br>
+                <button class="btn btn-primary">No Show</button>
+            </div>
+        </div>
+    </div>
+</div>
