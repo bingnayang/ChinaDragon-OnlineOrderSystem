@@ -8,13 +8,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ViewCommentComponent } from './view-comment/view-comment.component';
+import { ViewCommentDetailComponent } from './view-comment/view-comment-detail/view-comment-detail.component';
+import { ActiveOrderDetailComponent } from './active-order/active-order-detail/active-order-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActiveOrderComponent,
     HomeComponent,
-    ViewCommentComponent
+    ViewCommentComponent,
+    ViewCommentDetailComponent,
+    ActiveOrderDetailComponent
   ],
   imports: [
     BrowserModule,
