@@ -32,5 +32,17 @@ public class CommentDAOImplementation implements CommentDAO {
 		return commentList;
 	}
 
+	@Override
+	public Comment getCommentById(int commentId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Get the comment
+		Comment theComment = currentSession.get(Comment.class, commentId);
+		
+		// Return the comment
+		return theComment;
+	}
+
 	
 }

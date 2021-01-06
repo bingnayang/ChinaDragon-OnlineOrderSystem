@@ -23,6 +23,12 @@ public class CommentServiceImplementation implements CommentService {
 	public List<Comment> getCommentList() {
 		return commentDAO.getCommentList();
 	}
+
+	@Override
+	@Transactional
+	public Comment getCommentById(int commentId) {
+		return commentDAO.getCommentById(commentId);
+	}
 	
 	
 }

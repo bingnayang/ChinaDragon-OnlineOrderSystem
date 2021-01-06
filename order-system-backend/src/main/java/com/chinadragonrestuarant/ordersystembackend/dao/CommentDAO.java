@@ -8,4 +8,6 @@ public interface CommentDAO {
 
 	List<Comment> getCommentList();
 
+	Comment getCommentById(int commentId);
+
 }

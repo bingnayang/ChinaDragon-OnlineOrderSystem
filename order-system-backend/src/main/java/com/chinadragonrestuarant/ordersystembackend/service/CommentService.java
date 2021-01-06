@@ -8,4 +8,6 @@ public interface CommentService {
 
 	List<Comment> getCommentList();
 
+	Comment getCommentById(int commentId);
+
 }
