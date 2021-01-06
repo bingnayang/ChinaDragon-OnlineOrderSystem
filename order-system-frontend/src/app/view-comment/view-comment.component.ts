@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentService } from '../services/comment.service';
 import { Comment } from '../classes/comment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-comment',
@@ -10,7 +11,7 @@ import { Comment } from '../classes/comment';
 export class ViewCommentComponent implements OnInit {
   commentList: Comment[];
 
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCommentList();
@@ -21,8 +22,8 @@ export class ViewCommentComponent implements OnInit {
         this.commentList = data;
       },error => console.log(error));
   }
-  
-  viewCommentDetail(id:number){
 
+  viewCommentDetail(id:number){
+    this.router.navigate(['view-comment-detail',id]);
   }
 }
