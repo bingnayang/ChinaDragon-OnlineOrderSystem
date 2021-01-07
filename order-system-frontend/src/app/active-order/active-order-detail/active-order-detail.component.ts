@@ -11,6 +11,7 @@ import { SubmitOrder } from '../../classes/submit-order';
 export class ActiveOrderDetailComponent implements OnInit {
   id: number;
   orderDetail: SubmitOrder = new SubmitOrder();
+  orderStatus: string[] = ['pick-up','cancel-order','no-show'];
 
   constructor(private route: ActivatedRoute, private orderService: OrderService) { }
 
@@ -21,4 +22,7 @@ export class ActiveOrderDetailComponent implements OnInit {
     },error => console.log(error));
   }
 
+  updateOrder(status: string){
+    console.log(status);
+  }
 }

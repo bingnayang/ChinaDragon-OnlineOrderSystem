@@ -66,13 +66,13 @@
             <div class="col-sm-3"><h5>UPDATE STATUS</h5></div>
             <div class="col-sm-9">
                 <div class="row mb-3">
-                    <button class="btn btn-primary btn-block">Picked Up</button>
+                    <button class="btn btn-primary btn-block" (click)="updateOrder(orderStatus[0])">Picked Up</button>
                 </div>
                 <div class="row mb-3">
-                    <button class="btn btn-danger btn-block">Cancel Order</button>
+                    <button class="btn btn-danger btn-block" (click)="updateOrder(orderStatus[1])">Cancel Order</button>
                 </div>
                 <div class="row">
-                    <button class="btn btn-dark btn-block">No Show</button>
+                    <button class="btn btn-dark btn-block" (click)="updateOrder(orderStatus[2])">No Show</button>
                 </div>
             </div>
         </div>
