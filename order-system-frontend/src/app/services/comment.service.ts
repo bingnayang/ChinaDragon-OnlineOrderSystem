@@ -14,4 +14,8 @@ export class CommentService {
   getCommentList():Observable<Comment[]>{
     return this.httpClient.get<Comment[]>(`${this.baseURL}`);
   }
+
+  getCommentDetail(id: number):Observable<Comment>{
+    return this.httpClient.get<Comment>(`${this.baseURL}/${id}`)
+  }
 }

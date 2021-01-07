@@ -1,26 +1,27 @@
 <div class="container-fluid" style="padding-top: 1rem;">
-    <table class="table">
-        <thead class="thead-light"> 
-          <tr>
-            <th scope="col">Order Number</th>
-            <th scope="col">Name</th>
-            <th scope="col">Submited Time</th>
-            <th scope="col">PickUp Time</th>
-            <th scope="col">Item Quantity</th>
-            <th scope="col">Total</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let order of activeOrderList">
-            <th scope="row">{{ order.id }}</th>
-            <td>{{ order.name }}</td>
-            <td>{{ order.time }}</td>
-            <td>{{ order.pickup }}</td>
-            <td>{{ order.orderItem.length }}</td>
-            <td>{{ order.total }}</td>
-            <td><button type="button" class="btn btn-outline-primary" (click)="viewOrderDetail(order.id)">View Order Detail</button></td>
-          </tr>
-        </tbody>
-      </table>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Order Number</th>
+        <th scope="col">Name</th>
+        <th scope="col">Submitted Time</th>
+        <th scope="col">PickUp Time</th>
+        <th scope="col">Item Quantity</th>
+        <th scope="col">Total</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of activeOrderList">
+        <th scope="row">{{ order.id }}</th>
+        <td>{{ order.name }}</td>
+        <td>{{ order.time }}</td>
+        <td>{{ order.pickup }}</td>
+        <td>{{ order.orderItem.length }}</td>
+        <td>{{ order.total | currency }}</td>
+        <td><button type="button" class="btn btn-outline-primary" (click)="viewOrderDetail(order.id)">View Order
+            Detail</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
