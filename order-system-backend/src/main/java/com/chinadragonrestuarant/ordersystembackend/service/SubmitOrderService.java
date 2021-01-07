@@ -9,5 +9,7 @@ public interface SubmitOrderService {
 	List<SubmitOrder> getAllActiveOrder();
 
 	SubmitOrder getOrderById(int id);
+
+	List<SubmitOrder> getTodayOrderList();
 	
 }

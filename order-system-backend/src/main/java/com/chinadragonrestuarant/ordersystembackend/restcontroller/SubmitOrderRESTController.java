@@ -36,4 +36,9 @@ public class SubmitOrderRESTController {
 		}
 		return theOrder;
 	}
+	
+	@GetMapping("/today-orders")
+	public List<SubmitOrder> getTodayOrderList(){
+		return submitOrderService.getTodayOrderList();
+	}
 }

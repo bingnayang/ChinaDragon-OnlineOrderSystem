@@ -10,4 +10,6 @@ public interface SubmitOrderDAO {
 
 	SubmitOrder getOrderById(int id);
 
+	List<SubmitOrder> getTodayOrderList();
+
 }

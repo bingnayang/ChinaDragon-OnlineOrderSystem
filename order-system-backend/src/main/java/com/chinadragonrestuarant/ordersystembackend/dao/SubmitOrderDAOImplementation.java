@@ -1,5 +1,8 @@
 package com.chinadragonrestuarant.ordersystembackend.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,10 +18,14 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 	// Define field for entitymanager
 	private EntityManager entityManager;
 	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	Date date = new Date();
+	
 	@Autowired
 	public SubmitOrderDAOImplementation(EntityManager theEntityManager){
 		entityManager = theEntityManager;
 	}
+
 
 	@Override
 	public List<SubmitOrder> getAllActiveOrder() {
@@ -41,11 +48,28 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		// Get the museum
+		// Get the order
 		SubmitOrder theOrder = currentSession.get(SubmitOrder.class, id);
 		
-		// Return the museum
+		// Return the order
 		return theOrder;
+	}
+
+	@Override
+	public List<SubmitOrder> getTodayOrderList() {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<SubmitOrder> theQuery = currentSession.createQuery("FROM SubmitOrder order WHERE order.date = :date",SubmitOrder.class);
+		theQuery.setParameter("date",dateFormat.format(date));
+		
+		// Execute query and get result list
+		List<SubmitOrder> orderList = theQuery.getResultList();
+		
+		// Return the result
+		return orderList;
 	}
 	
 }

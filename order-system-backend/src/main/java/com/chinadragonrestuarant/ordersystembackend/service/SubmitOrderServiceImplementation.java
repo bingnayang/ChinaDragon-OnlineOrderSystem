@@ -29,4 +29,10 @@ public class SubmitOrderServiceImplementation implements SubmitOrderService {
 	public SubmitOrder getOrderById(int id) {
 		return submitOrderDAO.getOrderById(id);
 	}
+
+	@Override
+	@Transactional
+	public List<SubmitOrder> getTodayOrderList() {
+		return submitOrderDAO.getTodayOrderList();
+	}
 }
