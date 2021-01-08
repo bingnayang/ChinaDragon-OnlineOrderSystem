@@ -12,4 +12,6 @@ public interface SubmitOrderDAO {
 
 	List<SubmitOrder> getTodayOrderList();
 
+	boolean updateStatus(SubmitOrder theOrder);
+
 }

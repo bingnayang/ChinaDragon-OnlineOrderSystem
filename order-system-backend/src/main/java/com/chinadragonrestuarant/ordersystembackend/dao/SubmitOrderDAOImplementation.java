@@ -71,5 +71,20 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		// Return the result
 		return orderList;
 	}
+
+	@Override
+	public boolean updateStatus(SubmitOrder theOrder) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		try {
+			// Save order
+			currentSession.saveOrUpdate(theOrder);
+			return true;
+		}catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+	}
 	
 }

@@ -11,5 +11,7 @@ public interface SubmitOrderService {
 	SubmitOrder getOrderById(int id);
 
 	List<SubmitOrder> getTodayOrderList();
+
+	boolean updateStatus(SubmitOrder theOrder);
 	
 }
