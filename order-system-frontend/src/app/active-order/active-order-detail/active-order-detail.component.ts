@@ -10,8 +10,9 @@ import { SubmitOrder } from '../../classes/submit-order';
 })
 export class ActiveOrderDetailComponent implements OnInit {
   id: number;
+  updateStatus: boolean;
   orderDetail: SubmitOrder = new SubmitOrder();
-  orderStatus: string[] = ['pick-up','cancel-order','no-show'];
+  orderStatus: string[] = ['Pick-Up','Cancel-Order','No-Show'];
 
   constructor(private route: ActivatedRoute, private orderService: OrderService) { }
 
@@ -23,6 +24,10 @@ export class ActiveOrderDetailComponent implements OnInit {
   }
 
   updateOrder(status: string){
-    console.log(status);
+    this.orderDetail.status = status;
+    console.log(this.orderDetail);
+    this.orderService.updateOrderStatus(this.orderDetail).subscribe(data => {
+      this.updateStatus = data;
+    })
   }
 }

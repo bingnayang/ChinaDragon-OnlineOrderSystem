@@ -18,4 +18,8 @@ export class OrderService {
   getOrderById(id: number): Observable<SubmitOrder>{
     return this.httpClient.get<SubmitOrder>(`${this.baseURL}/${id}`);
   }
+
+  updateOrderStatus(order: SubmitOrder): Observable<any>{
+    return this.httpClient.put<SubmitOrder>(`${this.baseURL}`,order);
+  }
 }
