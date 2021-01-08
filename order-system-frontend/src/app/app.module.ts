@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ViewCommentComponent } from './view-comment/view-comment.component';
 import { ViewCommentDetailComponent } from './view-comment/view-comment-detail/view-comment-detail.component';
 import { ActiveOrderDetailComponent } from './active-order/active-order-detail/active-order-detail.component';
+import { TodayReportComponent } from './today-report/today-report.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ActiveOrderDetailComponent } from './active-order/active-order-detail/a
     HomeComponent,
     ViewCommentComponent,
     ViewCommentDetailComponent,
-    ActiveOrderDetailComponent
+    ActiveOrderDetailComponent,
+    TodayReportComponent
   ],
   imports: [
     BrowserModule,
