@@ -95,7 +95,10 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		
 		// Create a query
 		// Using native Hibernate API
-		Query theQuery = currentSession.createQuery("SELECT sum(total) FROM SubmitOrder order WHERE order.status = 'Cancel-Order'");
+		Query theQuery = currentSession.createQuery("SELECT sum(total) FROM SubmitOrder order WHERE order.status =:status AND order.date =: date");
+		theQuery.setParameter("status","Pick-Up");
+		theQuery.setParameter("date",dateFormat.format(date));
+		
 		List result = theQuery.list();
 		Number theTotal = (Number) result.get(0);
 		return (double) theTotal;
