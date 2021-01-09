@@ -8,6 +8,7 @@ import { SubmitOrder } from '../classes/submit-order';
 })
 export class OrderService {
   private baseURL = "http://localhost:8080/api/orders";
+  private today_baseURL = "http://localhost:8080/api/today-orders";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,4 +23,8 @@ export class OrderService {
   updateOrderStatus(order: SubmitOrder): Observable<any>{
     return this.httpClient.put<SubmitOrder>(`${this.baseURL}`,order);
   }
+
+  getTodayOrderList(): Observable<SubmitOrder[]>{
+    return this.httpClient.get<SubmitOrder[]>(`${this.today_baseURL}`);
+  }  
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SubmitOrder } from '../classes/submit-order';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-today-report',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./today-report.component.css']
 })
 export class TodayReportComponent implements OnInit {
+  todayOrder: SubmitOrder[];
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.getTodayOrderList();
+  }
+
+  getTodayOrderList(){
+    this.orderService.getTodayOrderList().subscribe(data => {
+      this.todayOrder = data;
+      console.log(this.todayOrder);
+    })
   }
 
 }
