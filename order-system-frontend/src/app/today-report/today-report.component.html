@@ -1,1 +1,33 @@
-<p>today-report works!</p>
+<div class="container-fluid" style="padding-top: 1rem;">
+    <div class="card">
+        <div class="card-header">
+          Order List
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Submitted Time</th>
+                    <th scope="col">PickUp Time</th>
+                    <th scope="col">Item Quantity</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of todayOrder">
+                    <th>{{ item.id }}</th>
+                    <td>{{ item.name }} </td>
+                    <td>{{ item.time }}</td>
+                    <td>{{ item.pickup }}</td>
+                    <td>{{ item.orderItem.length }}</td>
+                    <td>{{ item.total }}</td>
+                    <td>{{ item.status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+</div>
