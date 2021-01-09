@@ -39,11 +39,6 @@ public class SubmitOrderRESTController {
 		return theOrder;
 	}
 	
-	@GetMapping("/today-orders")
-	public List<SubmitOrder> getTodayOrderList(){
-		return submitOrderService.getTodayOrderList();
-	}
-	
 	@PutMapping("/orders")
 	public boolean updateOrderStatus(@RequestBody SubmitOrder theOrder) {
 		try {
@@ -52,6 +47,16 @@ public class SubmitOrderRESTController {
 		}catch (Exception e) {
 			return false;
 		}
+	}
+	
+	@GetMapping("/today-orders")
+	public List<SubmitOrder> getTodayOrderList(){
+		return submitOrderService.getTodayOrderList();
+	}
+	
+	@GetMapping("/today-orders/total")
+	public double getTodayOrderTotal(){
+		return submitOrderService.getTodayOrderTotal();
 	}
 	
 }

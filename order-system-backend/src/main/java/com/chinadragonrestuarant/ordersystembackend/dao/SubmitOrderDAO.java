@@ -14,4 +14,6 @@ public interface SubmitOrderDAO {
 
 	boolean updateStatus(SubmitOrder theOrder);
 
+	double getTodayOrderTotal();
+
 }

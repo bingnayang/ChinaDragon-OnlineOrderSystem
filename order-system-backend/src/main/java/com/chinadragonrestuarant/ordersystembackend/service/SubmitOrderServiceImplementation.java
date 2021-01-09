@@ -41,4 +41,10 @@ public class SubmitOrderServiceImplementation implements SubmitOrderService {
 	public boolean updateStatus(SubmitOrder theOrder) {
 		return submitOrderDAO.updateStatus(theOrder);
 	}
+
+	@Override
+	@Transactional
+	public double getTodayOrderTotal() {
+		return submitOrderDAO.getTodayOrderTotal();
+	}
 }

@@ -13,5 +13,7 @@ public interface SubmitOrderService {
 	List<SubmitOrder> getTodayOrderList();
 
 	boolean updateStatus(SubmitOrder theOrder);
+
+	double getTodayOrderTotal();
 	
 }

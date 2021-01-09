@@ -86,5 +86,19 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 			return false;
 		}
 	}
+
+
+	@Override
+	public double getTodayOrderTotal() {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query theQuery = currentSession.createQuery("SELECT sum(total) FROM SubmitOrder order WHERE order.status = 'Cancel-Order'");
+		List result = theQuery.list();
+		Number theTotal = (Number) result.get(0);
+		return (double) theTotal;
+	}
 	
 }
