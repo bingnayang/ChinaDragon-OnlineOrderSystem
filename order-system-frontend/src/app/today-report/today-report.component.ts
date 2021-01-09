@@ -9,17 +9,26 @@ import { OrderService } from '../services/order.service';
 })
 export class TodayReportComponent implements OnInit {
   todayOrder: SubmitOrder[];
+  todayOrderTotal: any;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getTodayOrderList();
+    this.getTodayOrderTotal();
   }
 
   getTodayOrderList(){
     this.orderService.getTodayOrderList().subscribe(data => {
       this.todayOrder = data;
       console.log(this.todayOrder);
+    })
+  }
+
+  getTodayOrderTotal(){
+    this.orderService.getTodayOrderTotal().subscribe(data => {
+      this.todayOrderTotal = data;
+      console.log(this.todayOrderTotal);
     })
   }
 

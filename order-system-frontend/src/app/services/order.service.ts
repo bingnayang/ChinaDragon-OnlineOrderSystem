@@ -27,4 +27,8 @@ export class OrderService {
   getTodayOrderList(): Observable<SubmitOrder[]>{
     return this.httpClient.get<SubmitOrder[]>(`${this.today_baseURL}`);
   }  
+
+  getTodayOrderTotal(): Observable<any>{
+    return this.httpClient.get<any>(`${this.today_baseURL}/total`);
+  }  
 }
