@@ -11,6 +11,7 @@ import * as CanvasJS from '../../../node_modules/canvasjs/dist/canvasjs.min.js';
 export class TodayReportComponent implements OnInit {
   todayOrder: SubmitOrder[];
   todayOrderTotal: any;
+  todaySubmittedOrder: any;
   pickUpOrderCount: number = 0;
   cancelOrderCount: number = 0;
   noShowOrderCount: number = 0;
@@ -25,6 +26,7 @@ export class TodayReportComponent implements OnInit {
   getTodayOrderList(){
     this.orderService.getTodayOrderList().subscribe(data => {
       this.todayOrder = data;
+      this.todaySubmittedOrder = data.length;
       this.getTodayOrderStatusCount(this.todayOrder);
     })
   }

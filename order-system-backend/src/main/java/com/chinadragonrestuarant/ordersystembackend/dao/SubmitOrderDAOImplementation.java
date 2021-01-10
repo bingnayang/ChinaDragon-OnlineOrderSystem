@@ -92,16 +92,20 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 	public double getTodayOrderTotal() {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
-		
-		// Create a query
-		// Using native Hibernate API
-		Query theQuery = currentSession.createQuery("SELECT sum(total) FROM SubmitOrder order WHERE order.status =:status AND order.date =: date");
-		theQuery.setParameter("status","Pick-Up");
-		theQuery.setParameter("date",dateFormat.format(date));
-		
-		List result = theQuery.list();
-		Number theTotal = (Number) result.get(0);
-		return (double) theTotal;
+		try {
+			// Create a query
+			// Using native Hibernate API
+			Query theQuery = currentSession.createQuery("SELECT sum(total) FROM SubmitOrder order WHERE order.status =:status AND order.date =: date");
+			theQuery.setParameter("status","Pick-Up");
+			theQuery.setParameter("date",dateFormat.format(date));
+			
+			List result = theQuery.list();
+			Number theTotal = (Number) result.get(0);
+			return (double) theTotal;
+		}catch (Exception e) {
+			return 0;
+		}
+
 	}
 	
 }
