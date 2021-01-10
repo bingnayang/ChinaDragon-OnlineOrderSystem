@@ -107,5 +107,22 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		}
 
 	}
+
+	@Override
+	public List<SubmitOrder> getSelectedDateOrderList(String selectDate) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<SubmitOrder> theQuery = currentSession.createQuery("FROM SubmitOrder order WHERE order.date = :date",SubmitOrder.class);
+		theQuery.setParameter("date",selectDate);
+		
+		// Execute query and get result list
+		List<SubmitOrder> allOrderList = theQuery.getResultList();
+		
+		// Return the result
+		return allOrderList;
+	}
 	
 }

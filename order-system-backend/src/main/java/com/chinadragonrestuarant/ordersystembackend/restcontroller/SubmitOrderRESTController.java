@@ -59,4 +59,9 @@ public class SubmitOrderRESTController {
 		return submitOrderService.getTodayOrderTotal();
 	}
 	
+	@GetMapping("/all-orders/{selectDate}")
+	public List<SubmitOrder> getSelectedDateOrderList(@PathVariable String selectDate){
+		return submitOrderService.getSelectedDateOrderList(selectDate);
+	}
+	
 }

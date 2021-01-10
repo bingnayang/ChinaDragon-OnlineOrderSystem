@@ -47,4 +47,10 @@ public class SubmitOrderServiceImplementation implements SubmitOrderService {
 	public double getTodayOrderTotal() {
 		return submitOrderDAO.getTodayOrderTotal();
 	}
+
+	@Override
+	@Transactional
+	public List<SubmitOrder> getSelectedDateOrderList(String selectDate) {
+		return submitOrderDAO.getSelectDateOrderList(selectDate);
+	}
 }

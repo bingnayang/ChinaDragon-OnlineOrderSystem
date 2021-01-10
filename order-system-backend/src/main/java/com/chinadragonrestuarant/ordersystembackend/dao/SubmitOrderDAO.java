@@ -16,4 +16,6 @@ public interface SubmitOrderDAO {
 
 	double getTodayOrderTotal();
 
+	List<SubmitOrder> getSelectedDateOrderList(String selectDate);
+
 }

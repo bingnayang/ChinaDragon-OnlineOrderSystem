@@ -15,5 +15,7 @@ public interface SubmitOrderService {
 	boolean updateStatus(SubmitOrder theOrder);
 
 	double getTodayOrderTotal();
+
+	List<SubmitOrder> getSelectedDateOrderList(String selectDate);
 	
 }
