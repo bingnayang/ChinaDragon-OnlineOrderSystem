@@ -11,22 +11,21 @@ import * as CanvasJS from '../../../node_modules/canvasjs/dist/canvasjs.min.js';
 export class TodayReportComponent implements OnInit {
   todayOrder: SubmitOrder[];
   todayOrderTotal: any;
+  pickUpOrderCount: number = 0;
+  cancelOrderCount: number = 0;
+  noShowOrderCount: number = 0;
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getTodayOrderList();
     this.getTodayOrderTotal();
-    this.getTodayOrderStatusCount();
   }
 
   getTodayOrderList(){
     this.orderService.getTodayOrderList().subscribe(data => {
       this.todayOrder = data;
-
-
-
-      console.log(this.todayOrder);
+      this.getTodayOrderStatusCount(this.todayOrder);
     })
   }
 
@@ -37,7 +36,20 @@ export class TodayReportComponent implements OnInit {
     })
   }
 
-  getTodayOrderStatusCount(){
+  getTodayOrderStatusCount(todayOrder: SubmitOrder[]){
+    // Count the order status
+    for(const key of todayOrder){
+      if(key.status === 'Pick-Up'){
+        this.pickUpOrderCount++;
+      }
+      if(key.status === 'Cancel-Order'){
+        this.cancelOrderCount++;
+      }
+      if(key.status === 'No-Show'){
+        this.noShowOrderCount++;
+      }
+    }
+    // Setup for chart
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
@@ -47,9 +59,9 @@ export class TodayReportComponent implements OnInit {
       data: [{
         type: "column",
         dataPoints: [
-          { y: 71, label: "Pick-Up" },
-          { y: 55, label: "Cancel" },
-          { y: 50, label: "No-Show" }
+          { y: this.pickUpOrderCount, label: "Pick-Up" },
+          { y: this.cancelOrderCount, label: "Cancel-Order" },
+          { y: this.noShowOrderCount, label: "No-Show" }
         ]
       }]
     });
