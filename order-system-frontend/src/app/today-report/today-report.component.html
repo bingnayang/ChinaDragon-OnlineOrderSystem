@@ -2,26 +2,34 @@
   <div class="row">
     <div class="col-sm">
       <!-- Today Online-Order Total Income -->
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header">
-          Today Online-Order Total Income
+          Today Online-Order Info
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <h3>{{ todayOrderTotal | currency}}</h3>
+            <div class="row">
+              <div class="col">Total Income:</div>
+              <div class="col text-right">{{ todayOrderTotal | currency }}</div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">Total Submitted Order:</div>
+              <div class="col text-right">{{ todayOrder.length }}</div>
+            </div>
           </blockquote>
         </div>
       </div>
     </div>
     <div class="col-sm">
       <!-- Today Order Quantity -->
-      <div class="card">
+      <div class="card h-100">
         <div class="card-header">
-          Today Online-Order Total Quantity
+          Today Online-Order Status Count
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
           </blockquote>
         </div>
       </div>
