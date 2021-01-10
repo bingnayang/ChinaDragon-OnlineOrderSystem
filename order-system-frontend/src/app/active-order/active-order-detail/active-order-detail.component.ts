@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../services/order.service';
 import { SubmitOrder } from '../../classes/submit-order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-active-order-detail',
@@ -14,7 +15,7 @@ export class ActiveOrderDetailComponent implements OnInit {
   orderDetail: SubmitOrder = new SubmitOrder();
   orderStatus: string[] = ['Pick-Up','Cancel-Order','No-Show'];
 
-  constructor(private route: ActivatedRoute, private orderService: OrderService) { }
+  constructor(private route: ActivatedRoute, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -25,9 +26,9 @@ export class ActiveOrderDetailComponent implements OnInit {
 
   updateOrder(status: string){
     this.orderDetail.status = status;
-    console.log(this.orderDetail);
     this.orderService.updateOrderStatus(this.orderDetail).subscribe(data => {
       this.updateStatus = data;
+      this.router.navigate(['active-order']);
     })
   }
 }
