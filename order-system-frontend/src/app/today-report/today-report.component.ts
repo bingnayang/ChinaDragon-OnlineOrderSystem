@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubmitOrder } from '../classes/submit-order';
 import { OrderService } from '../services/order.service';
-import * as CanvasJS from '../../../node_modules/canvasjs/dist/canvasjs.min.js';
+import * as CanvasJS from '../../assets/canvasjs-3.2.6/canvasjs.min.js';
 
 @Component({
   selector: 'app-today-report',
