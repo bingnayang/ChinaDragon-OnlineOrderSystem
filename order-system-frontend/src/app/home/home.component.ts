@@ -10,6 +10,7 @@ import * as CanvasJS from '../../assets/canvasjs-3.2.6/canvasjs.min.js';
 })
 export class HomeComponent implements OnInit {
   orderList: SubmitOrder[];
+  orderListByDate: SubmitOrder[];
   pickUpOrderCount: number = 0;
   cancelOrderCount: number = 0;
   noShowOrderCount: number = 0;
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllOrderList();
-    this.getOrderListByDate();
+    this.getOrderListByDate(this.today);
   }
 
   getAllOrderList() {
@@ -64,10 +65,14 @@ export class HomeComponent implements OnInit {
     chart.render();
   }
 
-  getOrderListByDate(){
-
+  getOrderListByDate(today: string){
+    this.orderService.getOrderListByDate(today).subscribe(data => {
+      this.orderListByDate = data;
+    })
   }
+
   onSubmit(){
     console.log(this.today)
+    this.getOrderListByDate(this.today);
   }
 }

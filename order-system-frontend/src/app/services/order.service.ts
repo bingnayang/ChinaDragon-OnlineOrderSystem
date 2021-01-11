@@ -36,4 +36,8 @@ export class OrderService {
   getAllOrderList(): Observable<SubmitOrder[]>{
     return this.httpClient.get<SubmitOrder[]>(`${this.all_baseURL}`);
   }
+
+  getOrderListByDate(selectedDate: string): Observable<SubmitOrder[]>{
+    return this.httpClient.get<SubmitOrder[]>(`${this.all_baseURL}/${selectedDate}`);
+  }
 }
