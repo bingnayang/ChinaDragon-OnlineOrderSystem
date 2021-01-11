@@ -9,6 +9,7 @@ import { SubmitOrder } from '../classes/submit-order';
 export class OrderService {
   private baseURL = "http://localhost:8080/api/orders";
   private today_baseURL = "http://localhost:8080/api/today-orders";
+  private all_baseURL = "http://localhost:8080/api/all-orders";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -31,4 +32,8 @@ export class OrderService {
   getTodayOrderTotal(): Observable<any>{
     return this.httpClient.get<any>(`${this.today_baseURL}/total`);
   }  
+
+  getAllOrderList(): Observable<SubmitOrder[]>{
+    return this.httpClient.get<SubmitOrder[]>(`${this.all_baseURL}`);
+  }
 }
