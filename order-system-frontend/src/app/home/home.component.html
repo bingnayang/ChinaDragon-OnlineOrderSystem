@@ -47,6 +47,28 @@
                 <input type="submit" class="btn btn-primary">
               </div>
             </form>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Order #</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of orderListByDate">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.phone }}</td>
+                  <td>{{ item.orderItem.length }}</td>
+                  <td>{{ item.status }}</td>
+                  <td>{{ item.total }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
