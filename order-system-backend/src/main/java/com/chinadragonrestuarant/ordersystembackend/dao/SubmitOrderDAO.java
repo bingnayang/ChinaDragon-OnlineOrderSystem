@@ -18,4 +18,6 @@ public interface SubmitOrderDAO {
 
 	List<SubmitOrder> getSelectedDateOrderList(String selectDate);
 
+	List<SubmitOrder> getAllOrderList();
+
 }

@@ -17,5 +17,7 @@ public interface SubmitOrderService {
 	double getTodayOrderTotal();
 
 	List<SubmitOrder> getSelectedDateOrderList(String selectDate);
+
+	List<SubmitOrder> getAllOrderList();
 	
 }

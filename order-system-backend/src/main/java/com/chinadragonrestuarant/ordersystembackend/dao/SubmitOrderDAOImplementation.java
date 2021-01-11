@@ -124,5 +124,22 @@ public class SubmitOrderDAOImplementation implements SubmitOrderDAO {
 		// Return the result
 		return allOrderList;
 	}
+
+
+	@Override
+	public List<SubmitOrder> getAllOrderList() {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<SubmitOrder> theQuery = currentSession.createQuery("FROM SubmitOrder",SubmitOrder.class);
+		
+		// Execute query and get result list
+		List<SubmitOrder> allOrderList = theQuery.getResultList();
+		
+		// Return the result
+		return allOrderList;
+	}
 	
 }

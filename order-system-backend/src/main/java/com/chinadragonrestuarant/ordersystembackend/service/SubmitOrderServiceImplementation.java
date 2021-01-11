@@ -51,6 +51,12 @@ public class SubmitOrderServiceImplementation implements SubmitOrderService {
 	@Override
 	@Transactional
 	public List<SubmitOrder> getSelectedDateOrderList(String selectDate) {
-		return submitOrderDAO.getSelectDateOrderList(selectDate);
+		return submitOrderDAO.getSelectedDateOrderList(selectDate);
+	}
+
+	@Override
+	@Transactional
+	public List<SubmitOrder> getAllOrderList() {
+		return submitOrderDAO.getAllOrderList();
 	}
 }

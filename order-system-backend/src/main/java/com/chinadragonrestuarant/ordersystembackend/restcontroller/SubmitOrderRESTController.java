@@ -64,4 +64,9 @@ public class SubmitOrderRESTController {
 		return submitOrderService.getSelectedDateOrderList(selectDate);
 	}
 	
+	@GetMapping("/all-orders")
+	public List<SubmitOrder> getAllOrderList(){
+		return submitOrderService.getAllOrderList();
+	}
+	
 }
