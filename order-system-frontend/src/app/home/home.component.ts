@@ -13,11 +13,16 @@ export class HomeComponent implements OnInit {
   pickUpOrderCount: number = 0;
   cancelOrderCount: number = 0;
   noShowOrderCount: number = 0;
+  today: string;
+  selectDate: any;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService) { 
+    this.today = new Date().toJSON().split("T")[0];
+  }
 
   ngOnInit(): void {
     this.getAllOrderList();
+    this.getOrderListByDate();
   }
 
   getAllOrderList() {
@@ -57,5 +62,12 @@ export class HomeComponent implements OnInit {
       }]
     });
     chart.render();
+  }
+
+  getOrderListByDate(){
+
+  }
+  onSubmit(){
+    console.log(this.today)
   }
 }

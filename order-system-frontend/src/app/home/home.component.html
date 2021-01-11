@@ -35,7 +35,18 @@
             Search Order List By Date
           </div>
           <div class="card-body">
-
+            <form (ngSubmit)="onSubmit()" class="form-inline">
+              <div class="form-group mb-2">
+                <input type="date"  
+                [ngModel]="today | date:'yyyy-MM-dd'"  
+                (ngModelChange)="today = $event"    
+                name="dt" 
+                class="form-control form-control-rounded" #searchDate> 
+              </div>     
+              <div class="form-group mx-sm-3 mb-2">
+                <input type="submit" class="btn btn-primary">
+              </div>
+            </form>
           </div>
         </div>
       </div>
