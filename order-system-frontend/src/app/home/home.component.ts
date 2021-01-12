@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   cancelOrderCount: number = 0;
   noShowOrderCount: number = 0;
   today: string;
-  selectDate: any;
+  todayDate : string = new Date().toISOString().slice(0, 10)
 
   constructor(private orderService: OrderService) { 
     this.today = new Date().toJSON().split("T")[0];
@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllOrderList();
     this.getOrderListByDate(this.today);
+    console.log(this.todayDate)
   }
 
   getAllOrderList() {
